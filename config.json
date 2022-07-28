@@ -1,0 +1,12 @@
+{
+    "config": {
+        "client_id": "XXX",
+        "client_secret": "XXX",
+        "password": "XXX",
+        "user_agent": "XXX",
+        "username": "XXX",
+        "img_path": "image_download",
+        "img_template_path": "images_templates",
+        "img_results_path": "images_results"
+    }
+}
