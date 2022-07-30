@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[2]:
+# In[ ]:
 
 
 import praw
@@ -227,10 +227,13 @@ def MakeMosaicImage(template_image, img_template_path, img_path,
     return "Image file generated."
 
 
-def main():
+def main():   
     # get config
     client_id, client_secret, password, user_agent, username, img_path, img_template_path, img_results_path = GetConfig(
     )
+    
+    # prepare tempalte images
+    ConvertImagesToRGB(img_template_path)
 
     # define mode
     images_downloaded = GetMode()
@@ -268,14 +271,14 @@ def main():
         # convert images
         ConvertImagesToRGB(img_path)
 
-    # run process
+    # run process    
     for template_image in os.listdir(img_template_path):
         print(f'Creating "{template_image.split(".")[0]}" image...')
         MakeMosaicImage(template_image,
                         img_template_path,
                         img_path,
                         img_results_path,
-                        tile_size=40) #change tile size if you want (the lower the more detailled)
+                        40) #change tile size if you want (the lower the more detailled)
 
 
 if __name__ == "__main__":
@@ -283,4 +286,10 @@ if __name__ == "__main__":
         "Please make sure that you have images in the folder 'images_templates' before you proceed. These images will serve as templates.\nPlease press any key to proceed.\n"
     )
     main()
+
+
+# In[ ]:
+
+
+
 
